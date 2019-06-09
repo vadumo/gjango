@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addLead } from '../../actions/leads';
+import { addLead, getLeads, deleteLead } from '../../actions/leads2';
+import { Link } from "react-router-dom";
 
 export class Form extends Component {
     state = {
-        name: ''
+        group_name: '',
+        descriptions: '',
     };
 
     static propTypes = {
@@ -17,25 +19,35 @@ export class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { name } = this.state;
-        const lead = { name };
+        const { group_name, descriptions } = this.state;
+        const lead = { group_name, descriptions };
         this.props.addLead(lead);
     };
 
     render() {
-        const { name } = this.state;
+        const { group_name, descriptions } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
-                <h2>Add Users</h2>
+                <h2>Add Group</h2>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
                         <label>Name</label>
                         <input
                             className="form-control"
                             type="text"
-                            name="name"
+                            name="group_name"
                             onChange={this.onChange}
-                            value={name}
+                            value={group_name}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Descriptions</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="descriptions"
+                            onChange={this.onChange}
+                            value={descriptions}
                         />
                     </div>
                     <div className="form-group">
