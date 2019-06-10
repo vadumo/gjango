@@ -34,7 +34,7 @@ export class Leads extends Component {
                             <tr key={lead.id}>
                                 <td>{lead.name}</td>
                                 <td>{lead.created_at}</td>
-                                <td></td>
+                                <td>{lead.group}</td>
                                 <td>
                                     <button
                                         onClick= {this.props.deleteLead.bind
@@ -44,10 +44,6 @@ export class Leads extends Component {
                                         {" "}
                                         Delete
                                     </button>
-                                </td>
-                                <td>
-                                    <button className="btn btn-outline-warning">
-                                    Edit</button>
                                 </td>
                             </tr>
                         )) }

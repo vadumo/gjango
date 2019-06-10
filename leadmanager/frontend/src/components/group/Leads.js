@@ -46,10 +46,6 @@ export class Leads extends Component {
                                         Delete
                                     </button>
                                 </td>
-                                <td>
-                                    <button className="btn btn-outline-warning">
-                                    Edit</button>
-                                </td>
                             </tr>
                         )) }
                     </tbody>

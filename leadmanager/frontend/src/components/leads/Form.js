@@ -5,7 +5,8 @@ import { addLead } from '../../actions/leads';
 
 export class Form extends Component {
     state = {
-        name: ''
+        name: '',
+        group: ''
     };
 
     static propTypes = {
@@ -17,13 +18,13 @@ export class Form extends Component {
 
     onSubmit = e => {
         e.preventDefault();
-        const { name } = this.state;
-        const lead = { name };
+        const { name, group } = this.state;
+        const lead = { name, group };
         this.props.addLead(lead);
     };
 
     render() {
-        const { name } = this.state;
+        const { name, group } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
                 <h2>Add Users</h2>
@@ -36,6 +37,16 @@ export class Form extends Component {
                             name="name"
                             onChange={this.onChange}
                             value={name}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Id_group</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            name="group"
+                            onChange={this.onChange}
+                            value={group}
                         />
                     </div>
                     <div className="form-group">
